@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------------------------------------
+   Global base styles for the immersive experience.
+   Everything is tuned for a dark, editorial, industrial look.
+   -------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  /* Native scrolling is disabled in favour of GSAP scrub-driven scroll.
+     Keep this AUTO so ScrollTrigger can control the page freely. */
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-ink text-bone font-sans;
+  /* `clip` (not `hidden`) keeps the viewport as the scroll container so
+     the sticky panels and fixed canvas behave predictably. */
+  overflow-x: clip;
+  margin: 0;
+}
+
+::selection {
+  background: #c8ff3d;
+  color: #0a0a0b;
+}
+
+/* Slim, unobtrusive scrollbar -------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0b;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 242, 236, 0.2);
+  border-radius: 999px;
+}
+
+/* Custom cursor --------------------------------------------------------------
+   The Cursor component toggles `.has-cursor` on <body> for fine pointers,
+   then native cursors are hidden so the lerped follower is the only cursor. */
+@media (pointer: fine) {
+  body.has-cursor,
+  body.has-cursor a,
+  body.has-cursor button,
+  body.has-cursor [data-hover] {
+    cursor: none;
+  }
+}
+
+/* Reusable component classes ---------------------------------------------- */
+@layer components {
+  /* Frosted glassmorphism panel used on metric cards + floating labels. */
+  .glass {
+    @apply bg-coal/60 backdrop-blur-xl border border-line;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 24px 60px -20px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Outlined display text (hollow headings) */
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(244, 242, 236, 0.28);
+    color: transparent;
+  }
+
+  /* Small technical label used all over the site */
+  .mono-label {
+    @apply font-mono text-[10px] uppercase tracking-widest2 text-ash;
+  }
+}
+
+/* Custom cursor elements (see Cursor.jsx) ----------------------------------- */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 999px;
+  z-index: 95;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  background: #f4f2ec;
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 1px solid rgba(244, 242, 236, 0.35);
+  transition:
+    width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    margin 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.cursor-ring.is-active {
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  border-color: rgba(200, 255, 61, 0.85);
+  background: rgba(200, 255, 61, 0.08);
+}
+
+/* ScrollHint travelling dot -------------------------------------------------- */
+@keyframes scroll-hint {
+  0% {
+    transform: translateY(-120%);
+  }
+  60% {
+    transform: translateY(260%);
+  }
+  100% {
+    transform: translateY(260%);
+  }
+}
+
+/* Reduced motion: collapse heavy animation for accessibility ---------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
