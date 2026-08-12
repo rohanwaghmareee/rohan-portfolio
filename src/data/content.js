@@ -17,8 +17,7 @@ export const PROFILE = {
 }
 
 export const SOCIALS = [
-  // TODO: swap in your real handles
-  { label: 'GitHub', href: 'https://github.com/rohanwaghmare' },
+  { label: 'GitHub', href: 'https://github.com/rohanwaghmareee' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/rohan-waghmare' },
   { label: 'Email', href: 'mailto:rohanwaghmare532@gmail.com' },
 ]
