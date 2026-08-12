@@ -10,6 +10,7 @@ const LINKS = [
   { label: 'WORK', index: 1 },
   { label: 'SERVICES', index: 2 },
   { label: 'STACK', index: 3 },
+  { label: 'ABOUT', index: 4 },
   { label: 'CONTACT', index: 5 },
 ]
 

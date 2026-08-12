@@ -16,6 +16,13 @@ export const PROFILE = {
     'Frontend & backend developer crafting fast, secure and immersive web experiences — from pixel-perfect UI to database-driven APIs.',
 }
 
+export const EDUCATION = {
+  college: 'Kavikulguru Institute of Science & Technology',
+  degree: 'B.Tech in Computer Technology',
+  period: '2024 — 2028 (expected)',
+  note: 'Currently pursuing — focused on full-stack development, scalable backend architecture and immersive WebGL interfaces.',
+}
+
 export const SOCIALS = [
   { label: 'GitHub', href: 'https://github.com/rohanwaghmareee' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/rohan-waghmare' },
