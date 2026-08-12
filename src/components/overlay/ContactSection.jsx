@@ -37,14 +37,14 @@ export default function ContactSection() {
     <section
       ref={panel}
       id="contact"
-      className="sticky top-0 flex h-screen flex-col justify-between overflow-hidden gap-6 px-6 pb-6 pt-20 md:px-14 md:pt-24"
+      className="sticky top-0 flex h-screen flex-col overflow-hidden px-6 pb-6 pt-24 md:px-14"
     >
-      <div>
+      <div className="flex-1">
         <p data-contact-meta className="mono-label mb-6 opacity-0">
           Contact — available for work
         </p>
 
-        <h2 className="font-display text-display font-extrabold leading-none tracking-tightest text-bone">
+        <h2 className="font-display text-display font-extrabold leading-[1.15] tracking-tightest text-bone">
           <span className="block overflow-hidden py-1">
             <span data-contact-line className="block opacity-0">LET'S BUILD</span>
           </span>

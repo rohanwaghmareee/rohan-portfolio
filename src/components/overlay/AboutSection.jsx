@@ -62,7 +62,7 @@ export default function AboutSection() {
           About — {PROFILE.name}
         </p>
 
-        <h2 className="font-display text-display-sm font-extrabold leading-none tracking-tightest text-bone">
+        <h2 className="font-display text-display-sm font-extrabold leading-[1.15] tracking-tightest text-bone">
           <span className="block overflow-hidden py-1">
             <span data-about-line className="block opacity-0">CODE THAT</span>
           </span>

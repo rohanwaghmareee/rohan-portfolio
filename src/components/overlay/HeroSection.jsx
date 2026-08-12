@@ -84,7 +84,7 @@ export default function HeroSection() {
           {PROFILE.name} — {PROFILE.role}
         </p>
 
-        <h1 className="font-display text-display font-extrabold leading-[0.95] tracking-tightest text-bone">
+        <h1 className="font-display text-display font-extrabold leading-[1.1] tracking-tightest text-bone">
           <span className="block overflow-hidden">
             <span data-hero-line className="block opacity-0">{PROFILE.firstName}</span>
           </span>
